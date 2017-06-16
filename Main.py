@@ -1,24 +1,14 @@
+# Created by: Melissa Melaugh
+# Date Created: 16 June 2017
+# Date Edited: 16 June 2017
+# Description: Main file for Single Locus Sequence Typing (SLST)
 
 
-def slice(sequence, size=200):
-    start = 0
-    end = size
-    while len(sequence) >= end:
-        yield sequence[start:end]
-        start += size
-        end += size
-
+from Slicer import seq_slice
 
 genome = 'ATGGTAGTAGCATATCAAAAGGGGTTTCC'
 
-sequence = slice(genome, size=6)
+sequence = seq_slice(genome, size=6)
 
 for seq in sequence:
     print seq
-
-print "End 1"
-
-for seq in sequence:
-    print seq
-
-print "End 2"
