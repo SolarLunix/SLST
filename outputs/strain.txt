@@ -1,0 +1,8 @@
+>seq_0 Data from position 0 to 5
+ATGGTA
+>seq_1 Data from position 6 to 11
+GTAGCA
+>seq_2 Data from position 12 to 17
+TATCAA
+>seq_3 Data from position 18 to 23
+AAGGGG

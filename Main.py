@@ -4,11 +4,8 @@
 # Description: Main file for Single Locus Sequence Typing (SLST)
 
 
-from Slicer import seq_slice
+from Slicer import create_fasta
 
 genome = 'ATGGTAGTAGCATATCAAAAGGGGTTTCC'
 
-sequence = seq_slice(genome, size=6)
-
-for seq in sequence:
-    print seq
+create_fasta(genome, size=6)
