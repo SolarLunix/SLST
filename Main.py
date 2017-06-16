@@ -5,7 +5,14 @@
 
 
 from Slicer import create_fasta
+from Concatenator import concat
 
 genome = 'ATGGTAGTAGCATATCAAAAGGGGTTTCC'
 
 create_fasta(genome, size=6)
+
+fragA = {'strain7':'AT', 'strain9':'ATC'}
+fragB = {'strain7':'TTT', 'strain9':'TTA'}
+d = concat([fragA, fragB])
+
+print d
