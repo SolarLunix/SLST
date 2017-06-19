@@ -1,6 +1,6 @@
 # Created by: Melissa Melaugh
 # Date Created: 16 June 2017
-# Date Edited: 16 June 2017
+# Date Edited: 19 June 2017
 # Description: Created the individual slices and will eventually store them in a multi-FASTA-file for later use.
 
 
@@ -19,7 +19,7 @@ def seq_slice(sequence, size):
     """
 
 
-def create_fasta(sequence, size=200, file_name="outputs/strain.txt", seq_id="seq"):
+def create_fasta(sequence, size=200, file_name="outputs/strain.fas", seq_id="seq"):
     # Creates a FASTA-file from the genomic data provided, sending it through the seq_slice method to split it before
     # saving it to a file of file_name using sequence id's of seq_id
 
