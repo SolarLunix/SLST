@@ -4,7 +4,7 @@
 # Description: Putting the genomic sequence back together from the fragments.
 
 
-def concat(fragments):
+def concatenator(fragments):
     out = {}
     count = 0
     for frag in fragments:

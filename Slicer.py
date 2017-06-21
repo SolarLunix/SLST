@@ -1,6 +1,6 @@
 # Created by: Melissa Melaugh
 # Date Created: 16 June 2017
-# Date Edited: 19 June 2017
+# Date Edited: 21 June 2017
 # Description: Created the individual slices and will eventually store them in a multi-FASTA-file for later use.
 
 
@@ -49,3 +49,10 @@ def create_fasta(sequence, size=200, jump=200, file_name="outputs/strain.fas", s
         count += 1
 
     print "FASTA created -", file_name
+
+
+def read_fas(file_loc=""):
+    # This method will read in the fas file or files for processing. For ease of use put the files in the inputs folder
+    a_file = open(file_loc)
+    document = a_file.readlines()
+    print document

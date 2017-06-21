@@ -4,7 +4,7 @@
 # Description: Main file for Single Locus Sequence Typing (SLST)
 
 
-from Slicer import create_fasta
+from Slicer import create_fasta, read_fas
 from Concatenator import concat
 
 genome = 'ATGGTAGTAGCATATCAAAAGGGGTTTCC'
