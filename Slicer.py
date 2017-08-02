@@ -19,7 +19,7 @@ def seq_slice(sequence, size, jump):
     """
 
 
-def create_fasta(sequence, size=200, jump=200, file_name="outputs/strain.fas", seq_id="seq"):
+def create_fasta(sequence, size=200, jump=200, file_name="outputs/strain.fasta", seq_id="seq"):
     # Creates a FASTA-file from the genomic data provided, sending it through the seq_slice method to split it before
     # saving it to a file of file_name using sequence id's of seq_id
 
@@ -53,13 +53,28 @@ def create_fasta(sequence, size=200, jump=200, file_name="outputs/strain.fas", s
     print "FASTA created -", file_name
 
 
-def read_fas(file_loc="inputs/strain.fas"):
+def read_fas(file_loc="inputs/strain.fasta"):
     # This method will read in the fas file or files for processing. For ease of use put the files in the inputs folder
+    print "Reading from:", file_loc
     a_file = open(file_loc)
     document = a_file.readlines()
+    descriptions = {}
+    genetics = {}
+    last_read = ""
+    key = ""
 
     for line in document:
         fixed = line.replace("\n", "")
-        print fixed
 
-        
+        if fixed.__contains__(">"):
+            # Create the key, and put the full description of the key in the descriptions dict.
+            end = fixed.find(" ")
+            key = fixed[1:end]
+            descriptions[key] = fixed
+            last_read = ""
+        else:
+            last_read += fixed
+            genetics[key] = last_read
+
+    print "Returning read file and descriptions"
+    return genetics, descriptions
