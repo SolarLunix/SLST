@@ -23,6 +23,8 @@ def create_fasta(sequence, size=200, jump=200, file_name="outputs/strain.fas", s
     # Creates a FASTA-file from the genomic data provided, sending it through the seq_slice method to split it before
     # saving it to a file of file_name using sequence id's of seq_id
 
+    print "Creating Fasta"
+
     sliced = seq_slice(sequence, size, jump)
     f = open(file_name, "w")
     count = 0
@@ -33,7 +35,7 @@ def create_fasta(sequence, size=200, jump=200, file_name="outputs/strain.fas", s
     for seq in sliced:
         # Create the sequence id and description for each slice
         sequence_id = ">" + seq_id + "_" + str(count)
-        des = "Data from position " + str(start) + " to " + str(end)
+        des = "frag_" + str(count) + "Data from position " + str(start) + " to " + str(end)
         line = sequence_id + " " + des + "\n"
 
         # Write the sequence id and description to the file
@@ -51,8 +53,13 @@ def create_fasta(sequence, size=200, jump=200, file_name="outputs/strain.fas", s
     print "FASTA created -", file_name
 
 
-def read_fas(file_loc=""):
+def read_fas(file_loc="inputs/strain.fas"):
     # This method will read in the fas file or files for processing. For ease of use put the files in the inputs folder
     a_file = open(file_loc)
     document = a_file.readlines()
-    print document
+
+    for line in document:
+        fixed = line.replace("\n", "")
+        print fixed
+
+        

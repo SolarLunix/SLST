@@ -5,11 +5,12 @@
 
 
 from Slicer import create_fasta, read_fas
-from Concatenator import concat
+from Concatenator import concatenator as concat
 
 genome = 'ATGGTAGTAGCATATCAAAAGGGGTTTCC'
 
 create_fasta(genome, size=6)
+read_fas()
 
 fragA = {'strain7':'AT', 'strain9':'ATC'}
 fragB = {'strain7':'TTT', 'strain9':'TTA'}
