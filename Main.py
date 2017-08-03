@@ -1,11 +1,12 @@
 # Created by: Melissa Melaugh
 # Date Created: 16 June 2017
-# Date Edited: 16 June 2017
+# Date Edited: 03 August 2017
 # Description: Main file for Single Locus Sequence Typing (SLST)
 
 
 from Slicer import create_fasta, read_fas
 from Concatenator import concatenator as concat
+from Blast import blast_extract
 
 genome = 'ATGGTAGTAGCATATCAAAAGGGGTTTCC'
 
@@ -21,3 +22,5 @@ fragB = {'strain7':'TTT', 'strain9':'TTA'}
 d = concat([fragA, fragB])
 
 print d
+
+blast_extract("KPAfrags.fasta", "SK137.fasta")
