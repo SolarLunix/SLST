@@ -22,12 +22,18 @@ def blast_extract(frag_path, genome_path):
     result = "files/" + frag_path + "_" + genome_path + "_blast_result.xls"
     result = result.replace(".fasta", "")
     f = open(result, "w")
-    f.write(p)
-    f.close()
+
+    hit_list = result.replace(".xls", ".txt")
+    f2 = open(hit_list, "w")
 
     last_hit = 'none'
+    top = "qseqid \tsseqid \tpident \tlength \tmismatch \tgapopen \tqstart \tqend \tsstart \tsend \tevalue \tbitscore"
+    f.write(top)
     for hit in p.split('\n'):
         value = hit.split('\t')
         if len(value) > 1 and value[0] != last_hit:
-            print('Candidate %s found in %s between nt %s and %s' %(value[0], value[1], value[8], value[9]))
+            f.write(hit)
+            f2.write(('Candidate %s found in %s between nt %s and %s' %(value[0], value[1], value[8], value[9])))
             last_hit = value[0]
+
+    f.close()
