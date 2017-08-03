@@ -1,6 +1,6 @@
 # Created by: Melissa Melaugh
 # Date Created: 16 June 2017
-# Date Edited: 21 June 2017
+# Date Edited: 02 August 2017
 # Description: Created the individual slices and will eventually store them in a multi-FASTA-file for later use.
 
 
@@ -50,7 +50,7 @@ def create_fasta(sequence, size=200, jump=200, file_name="strain.fasta", seq_id=
         start += jump
         end += jump
         count += 1
-
+    f.close()
     print "FASTA created -", file_name
 
 
