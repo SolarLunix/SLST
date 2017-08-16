@@ -16,6 +16,8 @@ namespace SLST
         public Form1()
         {
             InitializeComponent();
+            blast.BackColor = Color.Red;
+            mega.BackColor = Color.Red;
         }
 
         private void open_Click(object sender, EventArgs e)
@@ -54,6 +56,21 @@ namespace SLST
                     MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
                 }
             }
+        }
+
+        private void files_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void remove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
