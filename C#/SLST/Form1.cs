@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace SLST
 {
@@ -16,8 +17,41 @@ namespace SLST
         public Form1()
         {
             InitializeComponent();
+
+            //Make the default colour Red
             blast.BackColor = Color.Red;
             mega.BackColor = Color.Red;
+
+            //Set up the Command line
+            Process cmd = new Process();
+            cmd.StartInfo.FileName = "cmd.exe";
+            cmd.StartInfo.RedirectStandardInput = true;
+            cmd.StartInfo.RedirectStandardOutput = true;
+            cmd.StartInfo.CreateNoWindow = true;
+            cmd.StartInfo.UseShellExecute = false;
+
+            //Check if Blastn is installed
+            cmd.Start();
+            cmd.StandardInput.WriteLine("blastn -version");
+            cmd.StandardInput.Close();
+            cmd.WaitForExit();
+            String str = cmd.StandardOutput.ReadToEnd();
+            if (str.Contains("Package"))
+            {
+                blast.BackColor = Color.Green;
+            }
+
+            //Check if MegaCC is installed
+            cmd.Start();
+            cmd.StandardInput.WriteLine("megacc -v");
+            cmd.StandardInput.Close();
+            cmd.WaitForExit();
+            str = cmd.StandardOutput.ReadToEnd();
+            Console.WriteLine(str);
+            if (str.Contains("Evolution"))
+            {
+                mega.BackColor = Color.Green;
+            }
         }
 
         private void open_Click(object sender, EventArgs e)
@@ -27,7 +61,6 @@ namespace SLST
 
             openFileDialog1.InitialDirectory = "c:\\";
             openFileDialog1.Filter = "fasta files (*.fasta)|*.fasta|All files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
