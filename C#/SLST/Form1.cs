@@ -36,9 +36,15 @@ namespace SLST
                     {
                         using (myStream)
                         {
-                            // Insert code to read the stream here.
+                            String str = "";
                             System.IO.StreamReader sr = new System.IO.StreamReader(openFileDialog1.FileName);
-                            MessageBox.Show(sr.ReadToEnd());
+                            Console.WriteLine("Reading in File");
+                            while (!sr.EndOfStream)
+                            {
+                                str = sr.ReadLine();
+                            }
+                            Console.WriteLine("File Read in");
+                            Console.WriteLine(str);
                             sr.Close();
                         }
                     }
