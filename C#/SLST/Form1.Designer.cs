@@ -30,7 +30,7 @@
         {
             this.open = new System.Windows.Forms.Button();
             this.files = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.fileList = new System.Windows.Forms.ListBox();
             this.remove = new System.Windows.Forms.Button();
             this.createFrag = new System.Windows.Forms.Button();
             this.runBlast = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             // 
             // files
             // 
-            this.files.Controls.Add(this.listBox1);
+            this.files.Controls.Add(this.fileList);
             this.files.Location = new System.Drawing.Point(12, 88);
             this.files.Name = "files";
             this.files.Size = new System.Drawing.Size(462, 256);
@@ -61,14 +61,14 @@
             this.files.Text = "Loaded Files";
             this.files.Enter += new System.EventHandler(this.files_Enter);
             // 
-            // listBox1
+            // fileList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(6, 21);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(450, 228);
-            this.listBox1.TabIndex = 0;
+            this.fileList.FormattingEnabled = true;
+            this.fileList.ItemHeight = 16;
+            this.fileList.Location = new System.Drawing.Point(6, 21);
+            this.fileList.Name = "fileList";
+            this.fileList.Size = new System.Drawing.Size(450, 228);
+            this.fileList.TabIndex = 0;
             // 
             // remove
             // 
@@ -157,7 +157,7 @@
         private System.Windows.Forms.Button open;
         private System.Windows.Forms.GroupBox files;
         private System.Windows.Forms.Button remove;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox fileList;
         private System.Windows.Forms.Button createFrag;
         private System.Windows.Forms.Button runBlast;
         private System.Windows.Forms.Button createTree;

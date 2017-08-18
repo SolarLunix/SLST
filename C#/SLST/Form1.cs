@@ -9,14 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Collections;
 
 namespace SLST
 {
     public partial class Form1 : Form
     {
+        ArrayList fileNames;
+
         public Form1()
         {
             InitializeComponent();
+
+            fileNames = new ArrayList();
 
             //Make the default colour Red
             blast.BackColor = Color.Red;
@@ -72,6 +77,7 @@ namespace SLST
                         using (myStream)
                         {
                             String str = "";
+                            String file = openFileDialog1.FileName;
                             System.IO.StreamReader sr = new System.IO.StreamReader(openFileDialog1.FileName);
                             Console.WriteLine("Reading in File");
                             while (!sr.EndOfStream)
@@ -81,6 +87,10 @@ namespace SLST
                             Console.WriteLine("File Read in");
                             Console.WriteLine(str);
                             sr.Close();
+
+                            String[] fileSplit = file.Split('\\');
+                            String name = fileSplit.Last();
+                            fileNames.Add(name);
                         }
                     }
                 }
@@ -89,6 +99,11 @@ namespace SLST
                     MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
                 }
             }
+        }
+
+        private void updateFileList()
+        {
+            fileList.
         }
 
         private void files_Enter(object sender, EventArgs e)
